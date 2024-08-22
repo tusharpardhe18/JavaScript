@@ -50,7 +50,7 @@ const myFunction = function(){
 
 // console.log(typeof bigNumber);
 // console.log(typeof outsideTemp);
-console.log(typeof myFunction);
+// console.log(typeof myFunction);
 /*
 
 Type of Val => Result
@@ -65,3 +65,35 @@ symbol => symbol
 */
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Stack(Primitive) , Heap(Non-Primitive)
+// gets a copy of data, gets a reference of data
+/*
+
+let myYoutubeName = "tushardotcom"
+
+let name = myYoutubeName
+name = "chaiaurcode"
+
+console.log(name);
+console.log(myYoutubeName);
+
+*/
+
+//In this, we get a copy of data
+let userOne = {
+    email: "user@gmail.com",
+    upi: "user@sbi"
+}
+
+//in this, we get refrenece of data
+let userTwo = userOne
+
+//accessing email of userOne using userTwo
+userTwo.email = "user2@gmail.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);
+
