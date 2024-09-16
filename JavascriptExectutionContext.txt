@@ -1,0 +1,56 @@
+** JavaScript Execution Context **
+___________________________________
+
+{} -> Global EC -> ( this )
+
+-> Global Execution Context
+-> Function Execution Context
+-> Eval Execution Context
+
+{} -> Memory Creation Phase : only memory is allocated to them
+   -> Execution Phase 
+
+    let val1 = 10
+    let val1 = 5
+    function addNum(num1, num2){
+        let total = num1 + num2
+        return total
+    }
+    let result1 = addNum(val1,val2)
+    let result2 = addNum(10,2)
+
+    Steps:
+    1. Global Execution -> this
+    2. Memory Creation Phase -> val1 -> undefined
+                                val2 -> undefined
+                                addNum -> definition (line 14,15,16)
+                                result1 -> undefined
+                                result2 -> undefined
+    3. Execution Phase -> val1 <- 10
+                          val2 <- 5
+                          addNum -> another executional phase 
+                                    (new variable environment + execution thread) 
+                                    1. memory phase
+                                    val1 -> undefined
+                                    val2 ->undefined
+                                    total -> undefined
+
+                                    2. execution Context
+                                    num1 <- 10
+                                    num2 <- 5
+                                    total <- 15
+
+                          get deleted
+                          result1 <- 15
+                          result2 -> NVE + thread
+                          1. memory creation phase
+
+                          2. execution phase
+
+
+** Call Stack **
+_________________
+
+it's normally a stack type execution where the first function we 
+call it executes and pops out and if there are multiple then
+the last in first out process happens
